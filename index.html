@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <title>Cùng con làm toán</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="./css/style.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+  <body id="cung_con_lam_toan_page">
+    <div class="container">
+      <h1>Cùng con làm toán</h1>
+      <h3>Tạo các bài toán cho con</h3>
+
+      <div class="cac-bieu-thuc-wrapper">
+        <form class="form-tao-bai-toan">
+          <div class="cac-bieu-thuc-cards">
+            <div class="card bieu-thuc-card">
+              <div class="card-header">
+                <span>Biểu thức 1</span>
+              </div>
+
+              <div class="card-body">
+                <div class="bieu-thuc-wrapper row">
+                  <div class="form-group col-auto">
+                    <label for="input_so_1_1">Số thứ 1</label>
+                    <input id="input_so_1_1" name="input_so_1_1" placeholder="Số thứ 1" type="number" required="required" class="form-control input-so">
+                  </div>
+                  <div class="form-group col-auto">
+                    <label for="phep_toan_1_1">Phép toán</label>
+                    <div>
+                      <select id="phep_toan_1_1" name="phep_toan_1_1" class="custom-select phep-toan-select">
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                        <option value="*">*</option>
+                        <option value="/">/</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group col-auto">
+                    <label for="input_so_1_2">Số thứ 2</label>
+                    <input id="input_so_1_2" name="input_so_1_2" placeholder="Số thứ 2" type="number" required="required" class="form-control input-so">
+                  </div> 
+                </div>
+
+                <div class="form-group row">
+                  <label for="input_so_bai_toan_1" class="col-auto">Số bài toán</label>
+                  <div class="col-auto">
+                    <input id="input_so_bai_toan_1" name="input_so_bai_toan_1" placeholder="Số bài toán" type="number" required="required" class="form-control col-auto input-so-bai-toan">
+                  </div>
+
+                  <div class="col-auto">
+                    <p id="button_them_phep_toan">
+                      <i class="fa fa-plus"></i>
+                      Thêm phép toán
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mrg10T">
+            <p id="button_them_bieu_thuc">
+              <i class="fa fa-plus"></i>
+              Thêm biểu thức
+            </p>
+          </div>
+
+          <div class="form-group mrg10T">
+            <button name="submit" type="submit" class="btn btn-primary">Tạo bài toán</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="cac-bai-toan-wrapper row mrg10T">
+      </div>
+
+      <div class="kiem-tra-wrapper row mrg10T">
+        <div class="col-auto">
+          <button class="btn btn-primary" id="button_kiem_tra">Kiểm tra</button>
+          <span class="ket-qua mrg10L"></span>
+        </div>
+      </div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script src="./js/utilities.js"></script>
+    <script src="./js/templates.js"></script>
+    <script src="./js/script.js"></script>
+
+  </body>
+</html>
