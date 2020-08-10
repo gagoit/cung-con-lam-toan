@@ -28,6 +28,61 @@
   max-width: 160px;
 }
 
+.bai-toan.hidden {
+  display: none;
+}
+
+.bai-toan.shown {
+  display: block;
+}
+
+.bai-toan.current {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+}
+
+.bai-toan.current span {
+  display: block;
+}
+
+.checkbox-custom {
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  transform: scale(2);
+  padding: 10px;
+  margin-left: 6px;
+}
+
+.checkboxtext {
+  /* Checkbox text */
+  font-size: 110%;
+  display: inline;
+}
+
+.thanh-dieu-huong-wrapper {
+  display: none;
+}
+
+.thanh-dieu-huong-wrapper .next, .thanh-dieu-huong-wrapper .prev {
+  font-size: 40px;
+  color: blue;
+  cursor: pointer;
+}
+
+.thanh-dieu-huong-wrapper .next.disabled, .thanh-dieu-huong-wrapper .prev.disabled {
+  color: gray;
+  cursor: default;
+}
+
+.thanh-dieu-huong-wrapper .next {
+  float: right;
+}
+
 .ket-qua.dung-100 {
   color: #28a745;
   font-weight: bold;

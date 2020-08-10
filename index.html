@@ -26,7 +26,7 @@
                 <div class="bieu-thuc-wrapper row">
                   <div class="form-group col-auto">
                     <label for="input_so_1_1">Số thứ 1</label>
-                    <input id="input_so_1_1" name="input_so_1_1" placeholder="Số thứ 1" type="number" required="required" class="form-control input-so">
+                    <input id="input_so_1_1" name="input_so_1_1" placeholder="Số thứ 1" type="number" value="100" required="required" class="form-control input-so">
                   </div>
                   <div class="form-group col-auto">
                     <label for="phep_toan_1_1">Phép toán</label>
@@ -41,14 +41,14 @@
                   </div>
                   <div class="form-group col-auto">
                     <label for="input_so_1_2">Số thứ 2</label>
-                    <input id="input_so_1_2" name="input_so_1_2" placeholder="Số thứ 2" type="number" required="required" class="form-control input-so">
+                    <input id="input_so_1_2" name="input_so_1_2" placeholder="Số thứ 2" type="number" value="20" required="required" class="form-control input-so">
                   </div> 
                 </div>
 
                 <div class="form-group row">
                   <label for="input_so_bai_toan_1" class="col-auto">Số bài toán</label>
                   <div class="col-auto">
-                    <input id="input_so_bai_toan_1" name="input_so_bai_toan_1" placeholder="Số bài toán" type="number" required="required" class="form-control col-auto input-so-bai-toan">
+                    <input id="input_so_bai_toan_1" name="input_so_bai_toan_1" placeholder="Số bài toán" type="number" value="10" required="required" class="form-control col-auto input-so-bai-toan">
                   </div>
 
                   <div class="col-auto">
@@ -69,6 +69,16 @@
             </p>
           </div>
 
+          <div class="mrg10T">
+            <input type="checkbox" class="checkbox-custom" id="checkbox_chap_nhan_ket_qua_am" class="mrg10L" aria-label="Bé đã biết tính toán với kết quả âm.">
+            <label for="checkbox_chap_nhan_ket_qua_am" class="col-auto checkboxtext">Bé đã biết tính toán với kết quả âm.</label>
+          </div>
+
+          <div class="mrg10T">
+            <input type="checkbox" class="checkbox-custom" id="checkbox_chap_nhan_ket_qua_du" class="mrg10L" aria-label="Bé đã biết tính toán với phép chia có dư.">
+            <label for="checkbox_chap_nhan_ket_qua_du" class="col-auto checkboxtext">Bé đã biết tính toán với phép chia có dư.</label>
+          </div>
+
           <div class="form-group mrg10T">
             <button name="submit" type="submit" class="btn btn-primary">Tạo bài toán</button>
           </div>
@@ -76,6 +86,11 @@
       </div>
 
       <div class="cac-bai-toan-wrapper row mrg10T">
+      </div>
+
+      <div class="thanh-dieu-huong-wrapper mrg10T">
+        <i class="fa fa-chevron-left prev"></i>
+        <i class="fa fa-chevron-right next"></i>
       </div>
 
       <div class="kiem-tra-wrapper row mrg10T">
@@ -89,6 +104,7 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
     <script src="./js/utilities.js"></script>
     <script src="./js/templates.js"></script>
+    <script src="./js/bai_toan.js"></script>
     <script src="./js/script.js"></script>
 
   </body>

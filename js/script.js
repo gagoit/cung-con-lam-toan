@@ -4,6 +4,11 @@ var CungConLamToan = {
     this.$form = $('.form-tao-bai-toan');
     this.$cacBieuThucCards = $('.cac-bieu-thuc-cards');
     this.$cacBaiToanWrapper = $('.cac-bai-toan-wrapper');
+    this.$thanhDieuHuongWrapper = $('.thanh-dieu-huong-wrapper');
+    this.$thanhDieuHuongNext = $('.thanh-dieu-huong-wrapper .next');
+    this.$thanhDieuHuongPrev = $('.thanh-dieu-huong-wrapper .prev');
+    this.$baiToanHienTai = null;
+    this.cacBaiToan = [];
     this.initEvents();
   },
   
@@ -26,6 +31,28 @@ var CungConLamToan = {
 
     $('#button_kiem_tra').click(function () {
       self.kiemTraCacBaiToan();
+    });
+
+    self.initThanhDieuHuong();
+  },
+
+  initThanhDieuHuong: function () {
+    var self = this;
+
+    self.$thanhDieuHuongWrapper.find('.next').click(function () {
+      if ($(this).hasClass('disabled')) {
+        return;
+      }
+
+      self.hienThiBaiToan('next');
+    });
+
+    self.$thanhDieuHuongWrapper.find('.prev').click(function () {
+      if ($(this).hasClass('disabled')) {
+        return;
+      }
+
+      self.hienThiBaiToan('prev');
     });
   },
   
@@ -50,56 +77,74 @@ var CungConLamToan = {
 
   taoCacBaiToan: function () {
     var self = this;
+    var chapNhanSoAm = $("#checkbox_chap_nhan_ket_qua_am").prop("checked");
+    var chapNhanSoDu = $("#checkbox_chap_nhan_ket_qua_du").prop("checked");
+
     self.$cacBaiToanWrapper.html('');
     $('.ket-qua').html('').removeClass('dung-100');
+    self.cacBaiToan = [];
 
     $.each(self.$cacBieuThucCards.find('.bieu-thuc-card'), function (index, bieuThucCard) {
-      self.taoCacBaiToanChoMotBieuThuc($(bieuThucCard));
+      var cacBaiToanChoMotBieuThuc = BaiToan.taoCacBaiToanChoMotBieuThuc($(bieuThucCard), chapNhanSoAm, chapNhanSoDu);
+      self.cacBaiToan = self.cacBaiToan.concat(cacBaiToanChoMotBieuThuc);
     });
+
+    self.hienThiCacBaiToan(self.cacBaiToan);
   },
 
-  taoCacBaiToanChoMotBieuThuc: function ($bieuThucCard) {
-    var self = this;
-
-    var soBaiToan = $bieuThucCard.find('.input-so-bai-toan').val();
-    var cacPhepToan = $.map($bieuThucCard.find('select.phep-toan-select'), function (ele, index) {
-      return ele.value;
-    });
-    var cacSoToiDa = $.map($bieuThucCard.find('input.input-so'), function (ele, index) {
-      return parseInt(ele.value);
-    });
-
-    var numBaiToan = 0;
-    var cacBaiToan = [];
-    while (numBaiToan < soBaiToan) {
-      cacBaiToan.push(self.taoMotBaiToan(cacPhepToan, cacSoToiDa));
-      numBaiToan ++;
-    }
-
-    self.printCacBaiToan(cacBaiToan);
-
-    return cacBaiToan;
-  },
-
-  taoMotBaiToan: function (cacPhepToan, cacSoToiDa) {
-    var self = this;
-    var baiToan = [];
-    baiToan.push(Utilities.randomNumber(cacSoToiDa[0]));
-    $.each(cacPhepToan, function (index, phepToan) {
-      baiToan.push(phepToan);
-
-      baiToan.push(Utilities.randomNumber(cacSoToiDa[index + 1]));
-    });
-
-    return baiToan;
-  },
-
-  printCacBaiToan: function (cacBaiToan) {
+  hienThiCacBaiToan: function (cacBaiToan) {
     var self = this;
 
     $.each(cacBaiToan, function (index, baiToan) {
       self.$cacBaiToanWrapper.append(Templates.baiToan(baiToan.join(' '), index));
     });
+
+    if (cacBaiToan.length > 0) {
+      self.$baiToanHienTai = self.$cacBaiToanWrapper.find('.bai-toan').first();
+      self.$baiToanHienTai.addClass('current');
+    }
+
+    self.hienThiThanhDieuHuong();
+  },
+
+  hienThiBaiToan: function (kieu) {
+    var self = this;
+    var baiToanTiepTheo = kieu == 'next' ? self.$baiToanHienTai.next() : self.$baiToanHienTai.prev();
+
+    if (baiToanTiepTheo.length) {
+      self.$cacBaiToanWrapper.find('.bai-toan').addClass('hidden').removeClass('current');
+      baiToanTiepTheo.addClass('current');
+      self.$baiToanHienTai = baiToanTiepTheo;
+    } else {
+      self.$cacBaiToanWrapper.find('.bai-toan').removeClass('hidden').removeClass('current');
+    }
+
+    self.hienThiThanhDieuHuong();
+  },
+
+  hienThiThanhDieuHuong: function () {
+    var self = this;
+
+    if (self.cacBaiToan.length > 1 && self.$cacBaiToanWrapper.find('.bai-toan.current').length) {
+      self.$thanhDieuHuongWrapper.show();
+    } else {
+      self.$thanhDieuHuongWrapper.hide();
+      return;
+    }
+
+    var isLast = self.$cacBaiToanWrapper.find('.bai-toan').index(self.$baiToanHienTai) == (self.cacBaiToan.length - 1);
+
+    if (self.$baiToanHienTai.next().length || isLast) {
+      self.$thanhDieuHuongNext.removeClass('disabled');
+    } else {
+      self.$thanhDieuHuongNext.addClass('disabled');
+    }
+
+    if (self.$baiToanHienTai.prev().length) {
+      self.$thanhDieuHuongPrev.removeClass('disabled');
+    } else {
+      self.$thanhDieuHuongPrev.addClass('disabled');
+    }
   },
 
   kiemTraCacBaiToan: function () {
@@ -125,6 +170,10 @@ var CungConLamToan = {
       }
     });
 
+    self.inKetQua(soDapAnDung, soBaiToan);
+  },
+
+  inKetQua: function (soDapAnDung, soBaiToan) {
     if (soDapAnDung == 0) {
       $('.ket-qua').html('Rất tiếc! Con chưa làm đúng bài toán nào. Hãy cố lên.').removeClass('dung-100');
     } else if (soDapAnDung == soBaiToan) {
