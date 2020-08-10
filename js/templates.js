@@ -71,7 +71,7 @@ var Templates = {
   },
 
   baiToan: function (baiToanText, indexKetQua) {
-    return '<div class="bai-toan hidden col-auto mrg10B">' +
+    return '<div class="bai-toan d-none col-auto mrg10B">' +
       '<span class="left-side">' + baiToanText + '</span><span> = </span>' +
       '<input id="input_ket_qua_' + indexKetQua + '" name="input_ket_qua_' + indexKetQua + '" placeholder="Kết quả" type="number" class="form-control input-ket-qua">' +
     '</div>';

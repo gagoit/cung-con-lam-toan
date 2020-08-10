@@ -28,10 +28,6 @@
   max-width: 160px;
 }
 
-.bai-toan.hidden {
-  display: none;
-}
-
 .bai-toan.shown {
   display: block;
 }
@@ -64,8 +60,15 @@
   display: inline;
 }
 
+.cac-bai-toan-va-thanh-dieu-huong-wrapper {
+  position: relative;
+}
+
 .thanh-dieu-huong-wrapper {
-  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
 }
 
 .thanh-dieu-huong-wrapper .next, .thanh-dieu-huong-wrapper .prev {
@@ -81,6 +84,10 @@
 
 .thanh-dieu-huong-wrapper .next {
   float: right;
+}
+
+.thong-tin-hien-thi {
+  text-align: right;
 }
 
 .ket-qua.dung-100 {
