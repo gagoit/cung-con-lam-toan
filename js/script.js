@@ -102,6 +102,7 @@ var CungConLamToan = {
     if (cacBaiToan.length > 0) {
       self.$baiToanHienTai = self.$cacBaiToanWrapper.find('.bai-toan').first();
       self.$baiToanHienTai.addClass('current');
+      self.$baiToanHienTai.find('.input-ket-qua').focus();
     }
 
     self.hienThiThanhDieuHuong();
@@ -113,8 +114,9 @@ var CungConLamToan = {
 
     if (baiToanTiepTheo.length) {
       self.$cacBaiToanWrapper.find('.bai-toan').addClass('hidden').removeClass('current');
-      baiToanTiepTheo.addClass('current');
       self.$baiToanHienTai = baiToanTiepTheo;
+      self.$baiToanHienTai.addClass('current');
+      self.$baiToanHienTai.find('.input-ket-qua').focus();
     } else {
       self.$cacBaiToanWrapper.find('.bai-toan').removeClass('hidden').removeClass('current');
     }
