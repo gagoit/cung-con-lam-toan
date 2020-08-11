@@ -44,13 +44,13 @@ var BaiToan = {
     var ketQua = eval(baiToan.join(' '));
     if (ketQua < 0 && !chapNhanSoAm) {
       lanThu ++;
-      return self.taoMotBaiToan(cacPhepToan, cacSoToiDa, chapNhanSoAm, chapNhanSoDu, lanThu);
+      return self.taoMotBaiToanChoMotBieuThuc(cacPhepToan, cacSoToiDa, chapNhanSoAm, chapNhanSoDu, lanThu);
     }
 
     var ketQuaIsFloat = (ketQua + "").indexOf('.') != -1;
     if (ketQuaIsFloat && !chapNhanSoDu) {
       lanThu ++;
-      return self.taoMotBaiToan(cacPhepToan, cacSoToiDa, chapNhanSoAm, chapNhanSoDu, lanThu);
+      return self.taoMotBaiToanChoMotBieuThuc(cacPhepToan, cacSoToiDa, chapNhanSoAm, chapNhanSoDu, lanThu);
     }
 
     return baiToan;
