@@ -18,6 +18,10 @@
   color: blue;
 }
 
+.navbar-custom {
+  padding: .3rem 1rem;
+}
+
 #button_them_phep_toan, #button_them_bieu_thuc {
   cursor: pointer;
 }
