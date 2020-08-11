@@ -47,10 +47,22 @@
     </div>
 
     <div class="container mrg10T">
-      <h3>Tạo các bài toán cho con</h3>
+      <div class="row">
+        <div class="category col-6" data-container="tao-cac-bai-toan-theo-bieu-thuc">
+          <image src="./images/tao-bai-toan-theo-bieu-thuc.png" class="img-fluid" alt="Tạo các bài toán theo biểu thức mẫu cho con"></image>
+        </div>
+
+        <div class="category col-6" data-container="tao-cac-bai-toan-so-sanh">
+          <image src="./images/tao-bai-toan-so-sanh.png" class="img-fluid" alt="Tạo các bài toán so sánh cho con"></image>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-category tao-cac-bai-toan-theo-bieu-thuc d-none mrg10T">
+      <h3>Tạo các bài toán theo biểu thức mẫu cho con</h3>
 
       <div class="cac-bieu-thuc-wrapper">
-        <form class="form-tao-bai-toan">
+        <form class="form-tao-bai-toan-theo-bieu-thuc">
           <div class="cac-bieu-thuc-cards">
             <div class="card bieu-thuc-card">
               <div class="card-header">
@@ -135,8 +147,60 @@
           <p class="thong-tin-hien-thi">Hiển thị <strong class="so-hien-tai">1</strong> / <strong class="tong-so"></strong></p>
         </div>
         <div class="ket-qua-wrapper d-none">
+          <p class="ket-qua mrg10B"></p>
           <button class="btn btn-primary" id="button_kiem_tra">Kiểm tra</button>
-          <span class="ket-qua mrg10L"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-category tao-cac-bai-toan-so-sanh d-none mrg10T">
+      <h3>Tạo các bài toán so sánh cho con</h3>
+
+      <div>
+        <form class="form-tao-bai-toan-so-sanh">
+          <div class="card phep-so-sanh-card">
+            <div class="card-header">
+              <span>Thông tin phép so sánh</span>
+            </div>
+
+            <div class="card-body">
+              <div class="phep-so-sanh-wrapper row">
+                <div class="form-group col-auto">
+                  <label for="pss_input_so_lon_nhat">Số lớn nhất</label>
+                  <input id="pss_input_so_lon_nhat" name="pss_input_so_lon_nhat" placeholder="Số lớn nhất" type="number" value="100" required="required" class="form-control">
+                </div>
+
+                <div class="form-group col-auto">
+                  <label for="pss_input_so_bai_toan">Số bài toán</label>
+                  <input id="pss_input_so_bai_toan" name="pss_input_so_bai_toan" placeholder="Số bài toán" type="number" value="10" required="required" class="form-control col-auto">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group mrg10T">
+            <button name="submit" type="submit" class="btn btn-primary">Tạo bài toán</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="cac-bai-toan-va-thanh-dieu-huong-wrapper">
+        <div class="cac-bai-toan-wrapper row mrg10T">
+        </div>
+
+        <div class="thanh-dieu-huong-wrapper d-none mrg10T">
+          <i class="fa fa-chevron-left prev"></i>
+          <i class="fa fa-chevron-right next"></i>
+        </div>
+      </div>
+
+      <div class="mrg10T">
+        <div class="thong-tin-them-wrapper d-none">
+          <p class="thong-tin-hien-thi">Hiển thị <strong class="so-hien-tai">1</strong> / <strong class="tong-so"></strong></p>
+        </div>
+        <div class="ket-qua-wrapper d-none">
+          <p class="ket-qua mrg10B"></p>
+          <button class="btn btn-primary" id="pss_button_kiem_tra">Kiểm tra</button>
         </div>
       </div>
     </div>
@@ -145,6 +209,8 @@
     <script src="./js/utilities.js"></script>
     <script src="./js/templates.js"></script>
     <script src="./js/bai_toan.js"></script>
+    <script src="./js/tao_cac_bai_toan_theo_bieu_thuc.js"></script>
+    <script src="./js/tao_cac_bai_toan_so_sanh.js"></script>
     <script src="./js/script.js"></script>
 
   </body>

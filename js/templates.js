@@ -70,10 +70,18 @@ var Templates = {
     '</div>'
   },
 
-  baiToan: function (baiToanText, indexKetQua) {
-    return '<div class="bai-toan d-none col-auto mrg10B">' +
+  baiToanTheoBieuThuc: function (baiToanText, indexKetQua) {
+    return '<div class="bai-toan bai-toan-theo-bieu-thuc d-none col-auto mrg10B">' +
       '<span class="left-side">' + baiToanText + '</span><span> = </span>' +
       '<input id="input_ket_qua_' + indexKetQua + '" name="input_ket_qua_' + indexKetQua + '" placeholder="Kết quả" type="number" class="form-control input-ket-qua">' +
+    '</div>';
+  },
+
+  baiToanSoSanh: function (baiToan, indexKetQua) {
+    return '<div class="bai-toan bai-toan-so-sanh d-none col-auto mrg10B">' +
+      '<span class="left-side">' + baiToan[0] + '</span>' +
+      '<input id="pss_input_ket_qua_' + indexKetQua + '" name="pss_input_ket_qua_' + indexKetQua + '" placeholder="Kết quả" type="text" class="form-control pss-input-ket-qua">' +
+      '<span class="right-side">' + baiToan[1] + '</span>' +
     '</div>';
   }
 }

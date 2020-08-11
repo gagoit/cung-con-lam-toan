@@ -15,7 +15,7 @@ var BaiToan = {
     var baiToan = [];
 
     while (numBaiToan < soBaiToan) {
-      baiToan = self.taoMotBaiToan(cacPhepToan, cacSoToiDa, chapNhanSoAm, chapNhanSoDu, 0);
+      baiToan = self.taoMotBaiToanChoMotBieuThuc(cacPhepToan, cacSoToiDa, chapNhanSoAm, chapNhanSoDu, 0);
       if (baiToan.length) {
         cacBaiToan.push(baiToan);
       }
@@ -26,9 +26,10 @@ var BaiToan = {
     return cacBaiToan;
   },
 
-  taoMotBaiToan: function (cacPhepToan, cacSoToiDa, chapNhanSoAm, chapNhanSoDu, lanThu) {
+  taoMotBaiToanChoMotBieuThuc: function (cacPhepToan, cacSoToiDa, chapNhanSoAm, chapNhanSoDu, lanThu) {
     var self = this;
     var baiToan = [];
+
     if (lanThu > 10) {
       return baiToan;
     }
@@ -53,5 +54,28 @@ var BaiToan = {
     }
 
     return baiToan;
+  },
+
+  taoCacBaiToanSoSanh: function ($phepSoSanhCard) {
+    var self = this;
+
+    var soBaiToan = $phepSoSanhCard.find('#pss_input_so_bai_toan').val();
+    var soToiDa = $phepSoSanhCard.find('#pss_input_so_lon_nhat').val();
+
+    var numBaiToan = 0;
+    var cacBaiToan = [];
+    var baiToan = [];
+
+    while (numBaiToan < soBaiToan) {
+      cacBaiToan.push(self.taoMotBaiToanSoSanh(soToiDa));
+
+      numBaiToan ++;
+    }
+
+    return cacBaiToan;
+  },
+
+  taoMotBaiToanSoSanh: function (soToiDa) {
+    return [Utilities.randomNumber(soToiDa), Utilities.randomNumber(soToiDa)];
   }
 }

@@ -29,6 +29,37 @@
   }
 }
 
+.category {
+  cursor: pointer;
+
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+.category img {
+  display: block;
+  position: relative;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.category:hover img {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  /*filter: brightness(0.8);
+  -webkit-filter: brightness(0.8);*/
+
+  border: 1px solid #f9981c;
+  border-radius: 10px;
+}
 
 #button_them_phep_toan, #button_them_bieu_thuc {
   cursor: pointer;
@@ -40,6 +71,13 @@
   max-width: 160px;
 }
 
+.bai-toan .pss-input-ket-qua {
+  display: inline;
+  text-align: center;
+  width: 100px;
+  margin: 0 10px;
+}
+
 .bai-toan.shown {
   display: block;
 }
@@ -48,11 +86,26 @@
   display: block;
   width: 100%;
   text-align: center;
-  font-size: 30px;
+  font-size: 1.875rem;
 }
 
-.bai-toan.current span {
+.bai-toan.current .input-ket-qua {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.bai-toan.current .pss-input-ket-qua {
+  width: 120px;
+  margin: 30px;
+  font-size: 1.5rem;
+}
+
+.bai-toan-theo-bieu-thuc.current span {
   display: block;
+}
+
+.bai-toan-so-sanh.current span {
+  /*display: block;*/
 }
 
 .checkbox-custom {
@@ -72,21 +125,22 @@
   display: inline;
 }
 
-.cac-bai-toan-va-thanh-dieu-huong-wrapper {
-  position: relative;
+.form-tao-bai-toan-so-sanh input {
+  width: 100px;
 }
 
-.thanh-dieu-huong-wrapper {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
+.cac-bai-toan-va-thanh-dieu-huong-wrapper {
+  position: relative;
 }
 
 .thanh-dieu-huong-wrapper .next, .thanh-dieu-huong-wrapper .prev {
   font-size: 40px;
   color: blue;
   cursor: pointer;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .thanh-dieu-huong-wrapper .next.disabled, .thanh-dieu-huong-wrapper .prev.disabled {
@@ -95,7 +149,7 @@
 }
 
 .thanh-dieu-huong-wrapper .next {
-  float: right;
+  right: 0;
 }
 
 .thong-tin-hien-thi {
@@ -105,4 +159,18 @@
 .ket-qua.dung-100 {
   color: #28a745;
   font-weight: bold;
+}
+
+@media (max-width: 575.98px) {
+  .form-control.input-so, .bai-toan:not(.current) .input-ket-qua {
+    width: 100px;
+  }
+
+  #button_them_phep_toan {
+    margin-top: 10px;
+  }
+
+  .bieu-thuc-card .card-body {
+    padding-bottom: 0;
+  }
 }
