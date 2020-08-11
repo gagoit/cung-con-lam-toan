@@ -18,9 +18,17 @@
   color: blue;
 }
 
-.navbar-custom {
+.navbar.navbar-custom {
   padding: .3rem 1rem;
+  justify-content: center;
 }
+
+@media (min-width: 992px) {
+  .navbar.navbar-custom {
+    justify-content: space-between;
+  }
+}
+
 
 #button_them_phep_toan, #button_them_bieu_thuc {
   cursor: pointer;
