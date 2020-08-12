@@ -80,8 +80,10 @@ var Templates = {
   baiToanSoSanh: function (baiToan, indexKetQua) {
     return '<div class="bai-toan bai-toan-so-sanh d-none col-auto mrg10B">' +
       '<span class="left-side">' + baiToan[0] + '</span>' +
-      '<input id="pss_input_ket_qua_' + indexKetQua + '" name="pss_input_ket_qua_' + indexKetQua + '" placeholder="Kết quả" type="text" class="form-control pss-input-ket-qua">' +
+      '<input id="pss_input_ket_qua_' + indexKetQua + '" name="pss_input_ket_qua_' + indexKetQua + '" placeholder="Kết quả" type="text" readonly class="form-control pss-input-ket-qua">' +
+      '<span class="center-side pss-span-ket-qua"></span>' +
       '<span class="right-side">' + baiToan[1] + '</span>' +
+      '<p class="pss-keyboard"><span data-value="<"><</span><span data-value="=">=</span><span data-value=">">></span></p>' +
     '</div>';
   }
 }

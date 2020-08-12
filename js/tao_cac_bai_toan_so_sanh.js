@@ -52,6 +52,10 @@ var TaoCacBaiToanSoSanh = {
 
       self.hienThiBaiToan('prev');
     });
+
+    self.$container.on('click','.pss-keyboard span', function (e) {
+      self.setKetQuaChoBaiToan($(this));
+    });
   },
 
   taoCacBaiToan: function () {
@@ -156,6 +160,20 @@ var TaoCacBaiToanSoSanh = {
     } else {
       self.$ketQuaWrapper.addClass('d-none');
     }
+  },
+
+  setKetQuaChoBaiToan: function ($span) {
+    var self = this;
+    var $baiToan = $span.closest('.bai-toan');
+    var $inputKetQua = $baiToan.find('.pss-input-ket-qua');
+
+    $inputKetQua.val($span.data('value'));
+
+    $baiToan.find('.pss-keyboard span').removeClass('current');
+    $span.addClass('current');
+
+    $baiToan.find('.pss-span-ket-qua').html($span.html());
+    $baiToan.find('.pss-span-ket-qua').addClass('active');
   },
 
   kiemTraCacBaiToan: function () {

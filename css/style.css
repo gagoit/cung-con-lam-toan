@@ -98,14 +98,56 @@
   width: 120px;
   margin: 30px;
   font-size: 1.5rem;
+  display: none;
 }
 
 .bai-toan-theo-bieu-thuc.current span {
   display: block;
 }
 
-.bai-toan-so-sanh.current span {
-  /*display: block;*/
+.bai-toan-so-sanh .pss-span-ket-qua {
+  display: none;
+  width: 40px;
+  height: auto;
+
+  margin: 0 10px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  border: 2px solid #f9981c;
+}
+
+.bai-toan-so-sanh .pss-span-ket-qua.active {
+  color: #f9981c;
+}
+
+.bai-toan-so-sanh.current .pss-span-ket-qua {
+  display: inline-block;
+}
+
+.bai-toan-so-sanh.current .pss-keyboard {
+  display: block;
+}
+
+.pss-keyboard {
+  display: none;
+  margin-top: 30px;
+}
+
+.pss-keyboard span {
+  display: inline-block;
+  width: 40px;
+  height: auto;
+  border: 2px solid #84d8f8;
+  margin: 0 10px;
+  cursor: pointer;
+  color: #84d8f8;
+  font-weight: bold;
+}
+
+.pss-keyboard span:hover, .pss-keyboard span.current {
+  border-color: #f9981c;
+  color: #f9981c;
 }
 
 .checkbox-custom {
@@ -135,7 +177,7 @@
 
 .thanh-dieu-huong-wrapper .next, .thanh-dieu-huong-wrapper .prev {
   font-size: 40px;
-  color: blue;
+  color: #f9981c;
   cursor: pointer;
 
   position: absolute;
