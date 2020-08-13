@@ -3,9 +3,10 @@ var Templates = {
     return '<div class="card bieu-thuc-card mrg10T">' +
       '<div class="card-header">' +
         '<span>Biểu thức ' + newNumOfBieuThuc + '</span>' +
+        '<span class="an-hien-bieu-thuc" data-toggle="collapse" data-target="#bieu_thuc_' + newNumOfBieuThuc + '" aria-expanded="false" aria-controls="bieu_thuc_' + newNumOfBieuThuc + '">Ẩn</span>' +
       '</div>' +
 
-      '<div class="card-body">' +
+      '<div class="card-body bieu-thuc-card-body collapse show" id="bieu_thuc_' + newNumOfBieuThuc + '">' +
         '<div class="bieu-thuc-wrapper row">' +
           '<div class="form-group col-auto">' +
             '<label for="input_so_' + newNumOfBieuThuc + '_1">Số thứ 1</label>' +

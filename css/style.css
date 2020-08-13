@@ -61,6 +61,17 @@
   border-radius: 10px;
 }
 
+.an-hien-bieu-thuc, .an-hien-phep-so-sanh {
+  float: right;
+  color: blue;
+  cursor: pointer;
+}
+
+#input_thoi_gian_cho_1_bai_toan, #pss_input_thoi_gian_cho_1_bai_toan {
+  width: 250px;
+  margin-left: 15px;
+}
+
 #button_them_phep_toan, #button_them_bieu_thuc {
   cursor: pointer;
 }
@@ -194,8 +205,18 @@
   right: 0;
 }
 
-.thong-tin-hien-thi {
-  text-align: right;
+.thong-tin-them-wrapper {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.thong-tin-thoi-gian {
+  margin-right: 50px;
+}
+
+.thong-tin-thoi-gian .so-giay-con-lai {
+  color: #f9981c;
 }
 
 .ket-qua.dung-100 {

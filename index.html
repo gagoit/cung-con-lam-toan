@@ -67,9 +67,10 @@
             <div class="card bieu-thuc-card">
               <div class="card-header">
                 <span>Biểu thức 1</span>
+                <span class="an-hien-bieu-thuc" data-toggle="collapse" data-target="#bieu_thuc_1" aria-expanded="false" aria-controls="bieu_thuc_1">Ẩn</span>
               </div>
 
-              <div class="card-body">
+              <div class="card-body bieu-thuc-card-body collapse show" id="bieu_thuc_1">
                 <div class="bieu-thuc-wrapper row">
                   <div class="form-group col-auto">
                     <label for="input_so_1_1">Số thứ 1</label>
@@ -126,10 +127,21 @@
             <label for="checkbox_chap_nhan_ket_qua_du" class="col-auto checkboxtext">Bé đã biết tính toán với phép chia có dư.</label>
           </div>
 
+          <div class="form-group row mrg10T">
+            <input id="input_thoi_gian_cho_1_bai_toan" name="input_thoi_gian_cho_1_bai_toan" placeholder="Thời gian cho 1 bài toán" type="number" class="form-control col-auto"><span class="mrg10L">(giây)</span>
+          </div>
+
           <div class="form-group mrg10T">
             <button name="submit" type="submit" class="btn btn-primary">Tạo bài toán</button>
           </div>
         </form>
+      </div>
+
+      <div class="mrg10T">
+        <div class="thong-tin-them-wrapper d-none">
+          <span class="thong-tin-thoi-gian">Thời gian <strong class="so-giay-con-lai"></strong></span>
+          <span class="thong-tin-hien-thi">Hiển thị <strong class="so-hien-tai">1</strong> / <strong class="tong-so"></strong></span>
+        </div>
       </div>
 
       <div class="cac-bai-toan-va-thanh-dieu-huong-wrapper">
@@ -143,9 +155,6 @@
       </div>
 
       <div class="mrg10T">
-        <div class="thong-tin-them-wrapper d-none">
-          <p class="thong-tin-hien-thi">Hiển thị <strong class="so-hien-tai">1</strong> / <strong class="tong-so"></strong></p>
-        </div>
         <div class="ket-qua-wrapper d-none">
           <p class="ket-qua mrg10B"></p>
           <button class="btn btn-primary" id="button_kiem_tra">Kiểm tra</button>
@@ -161,9 +170,10 @@
           <div class="card phep-so-sanh-card">
             <div class="card-header">
               <span>Thông tin phép so sánh</span>
+              <span class="an-hien-phep-so-sanh" data-toggle="collapse" data-target="#phep_so_sanh_1" aria-expanded="false" aria-controls="phep_so_sanh_1">Ẩn</span>
             </div>
 
-            <div class="card-body">
+            <div class="card-body phep-so-sanh-body collapse show" id="phep_so_sanh_1">
               <div class="phep-so-sanh-wrapper row">
                 <div class="form-group col-auto">
                   <label for="pss_input_so_lon_nhat">Số lớn nhất</label>
@@ -178,10 +188,21 @@
             </div>
           </div>
 
+          <div class="form-group row mrg10T">
+            <input id="pss_input_thoi_gian_cho_1_bai_toan" name="pss_input_thoi_gian_cho_1_bai_toan" placeholder="Thời gian cho 1 bài toán" type="number" class="form-control col-auto"><span class="mrg10L">(giây)</span>
+          </div>
+
           <div class="form-group mrg10T">
             <button name="submit" type="submit" class="btn btn-primary">Tạo bài toán</button>
           </div>
         </form>
+      </div>
+
+      <div class="mrg10T">
+        <div class="thong-tin-them-wrapper d-none">
+          <span class="thong-tin-thoi-gian">Thời gian <strong class="so-giay-con-lai"></strong></span>
+          <span class="thong-tin-hien-thi">Hiển thị <strong class="so-hien-tai">1</strong> / <strong class="tong-so"></strong></span>
+        </div>
       </div>
 
       <div class="cac-bai-toan-va-thanh-dieu-huong-wrapper">
@@ -195,9 +216,6 @@
       </div>
 
       <div class="mrg10T">
-        <div class="thong-tin-them-wrapper d-none">
-          <p class="thong-tin-hien-thi">Hiển thị <strong class="so-hien-tai">1</strong> / <strong class="tong-so"></strong></p>
-        </div>
         <div class="ket-qua-wrapper d-none">
           <p class="ket-qua mrg10B"></p>
           <button class="btn btn-primary" id="pss_button_kiem_tra">Kiểm tra</button>
@@ -205,7 +223,9 @@
       </div>
     </div>
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="./js/utilities.js"></script>
     <script src="./js/templates.js"></script>
     <script src="./js/bai_toan.js"></script>
