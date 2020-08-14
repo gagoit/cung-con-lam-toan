@@ -50,6 +50,10 @@ var TaoCacBaiToanTheoBieuThuc = {
       self.kiemTraCacBaiToan();
     });
 
+    self.$container.on('click','.num-pad .num', function (e) {
+      self.setKetQuaChoBaiToan($(this));
+    });
+
     self.initThanhDieuHuong();
   },
 
@@ -72,7 +76,7 @@ var TaoCacBaiToanTheoBieuThuc = {
       self.hienThiBaiToan('prev');
     });
   },
-  
+
   themPhepToan: function ($buttonThemPhepToan) {
     var self = this;
     var $bieuThucCard = $buttonThemPhepToan.closest('.bieu-thuc-card');
@@ -148,8 +152,11 @@ var TaoCacBaiToanTheoBieuThuc = {
       self.$baiToanHienTai = baiToanTiepTheo;
       self.$baiToanHienTai.removeClass('d-none').addClass('current');
       self.$baiToanHienTai.find('.input-ket-qua').focus();
+
+      self.$container.find('.num-pad-wrapper').removeClass('d-none');
     } else {
       self.$cacBaiToanWrapper.find('.bai-toan').removeClass('d-none').removeClass('current');
+      self.$container.find('.num-pad-wrapper').addClass('d-none');
     }
 
     self.hienThiThanhDieuHuong();
@@ -200,6 +207,27 @@ var TaoCacBaiToanTheoBieuThuc = {
       self.$ketQuaWrapper.removeClass('d-none');
     } else {
       self.$ketQuaWrapper.addClass('d-none');
+    }
+  },
+
+  setKetQuaChoBaiToan: function ($num) {
+    var self = this;
+    var $inputKetQua = self.$baiToanHienTai.find('.input-ket-qua');
+    var num = $.trim($num.find('.txt').text());
+    var currentKetQua = $inputKetQua.val();
+
+    if (num == '-') {
+      if (!currentKetQua.startsWith('-')) {
+        $inputKetQua.val('-' + currentKetQua);
+      }
+    } else if (num == '<') {
+      if (currentKetQua.length > 1) {
+        $inputKetQua.val(currentKetQua.substring(0, currentKetQua.length - 1));
+      } else {
+        $inputKetQua.val('');
+      }
+    } else {
+      $inputKetQua.val($inputKetQua.val() + num);
     }
   },
 
