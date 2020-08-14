@@ -98,7 +98,6 @@ var TaoCacBaiToanTheoBieuThuc = {
     var chapNhanSoDu = $('#checkbox_chap_nhan_ket_qua_du').prop('checked');
 
     self.$cacBaiToanWrapper.html('');
-    self.clearAllIntervals();
     self.cacBaiToan = [];
 
     Utilities.inKetQua(self.$ketQua, 0, 0);
@@ -192,7 +191,7 @@ var TaoCacBaiToanTheoBieuThuc = {
     if (self.cacBaiToan.length > 1 && self.$cacBaiToanWrapper.find('.bai-toan.current').length) {
       self.$thongTinThemWrapper.removeClass('d-none');
 
-      self.hienThiThoiGian();
+      DongHoDemNguoc.hienThiThoiGian(self.$container, self.intervals);
     } else {
       self.$thongTinThemWrapper.addClass('d-none');
     }
@@ -201,40 +200,6 @@ var TaoCacBaiToanTheoBieuThuc = {
       self.$ketQuaWrapper.removeClass('d-none');
     } else {
       self.$ketQuaWrapper.addClass('d-none');
-    }
-  },
-
-  hienThiThoiGian: function () {
-    var self = this;
-    var thoiGianCho1BaiToan = parseInt(self.$container.find('#input_thoi_gian_cho_1_bai_toan').val());
-    var thoiGianConLaiCho1BaiToan = thoiGianCho1BaiToan;
-
-    if (thoiGianCho1BaiToan > 0) {
-      self.$container.find('.thong-tin-thoi-gian').removeClass('d-none');
-      self.$container.find('.so-giay-con-lai').text(thoiGianConLaiCho1BaiToan);
-
-      self.intervals.push(setInterval(function() {
-        thoiGianConLaiCho1BaiToan --;
-
-        if (thoiGianConLaiCho1BaiToan <= 0) {
-          self.clearAllIntervals();
-          self.hienThiBaiToan('next');
-        } else {
-          self.$container.find('.so-giay-con-lai').text(thoiGianConLaiCho1BaiToan);
-        }
-      }, 1000));
-    } else {
-      self.$container.find('.thong-tin-thoi-gian').addClass('d-none');
-    }
-  },
-
-  clearAllIntervals: function () {
-    var self = this;
-    self.$container.find('.so-giay-con-lai').text('---');
-
-    for (var id of self.intervals) {
-      clearInterval(id);
-      self.intervals = [];
     }
   },
 
