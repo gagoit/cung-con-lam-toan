@@ -151,7 +151,7 @@ var TaoCacBaiToanTheoBieuThuc = {
       self.$cacBaiToanWrapper.find('.bai-toan').addClass('d-none').removeClass('current');
       self.$baiToanHienTai = baiToanTiepTheo;
       self.$baiToanHienTai.removeClass('d-none').addClass('current');
-      self.$baiToanHienTai.find('.input-ket-qua').focus();
+      // self.$baiToanHienTai.find('.input-ket-qua').focus();
 
       self.$container.find('.num-pad-wrapper').removeClass('d-none');
     } else {
